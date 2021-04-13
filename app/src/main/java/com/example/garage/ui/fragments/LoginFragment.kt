@@ -10,10 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
+import com.example.garage.App
 import com.example.garage.R
 import com.example.garage.databinding.FragmentLoginBinding
 import com.example.garage.ui.activitys.MainActivity
+import com.example.garage.viewmodels.UsuarioViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +27,7 @@ import com.google.firebase.ktx.Firebase
 class LoginFragment : Fragment() {
     private val TAG = "MAIN_ACTIVITY"
     private var _binding: FragmentLoginBinding? = null
-    private lateinit var auth: FirebaseAuth
+    private val model: UsuarioViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -36,8 +39,7 @@ class LoginFragment : Fragment() {
         val view = _binding!!.root
         val binding = _binding!!
 
-        // Initialize Firebase Auth
-        auth = Firebase.auth
+
 
         binding.loginTiePassword.setOnFocusChangeListener { _, hasFocus ->
             run {
@@ -70,9 +72,9 @@ class LoginFragment : Fragment() {
         binding.loginBtnLogin.setOnClickListener {
             val editPassword = binding.loginTiePassword
             val password = editPassword.text
-
             val editUser = binding.loginTieUser
             val user = editUser.text
+            val email = binding.loginTieUser
 
             if (password.isNullOrBlank()) {
                 binding.loginTilPassword.error = getString(R.string.error_blank)
@@ -83,20 +85,28 @@ class LoginFragment : Fragment() {
                 binding.loginTilUser.error = getString(R.string.user_blank)
                 return@setOnClickListener
             }
-            val email = binding.loginTieUser
-            auth.signInWithEmailAndPassword(email.getString(), editPassword.getString())
-                .addOnCompleteListener(Activity()) { task ->
+            binding.progresBar.visibility = View.VISIBLE // Ponemos la proges bar en visible
+
+            model.login(email.getString(), editPassword.getString())
+                .observe(viewLifecycleOwner, { task ->
+
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        goToCars()
+                        goToMain()
 
                     } else {
+                        binding.progresBar.visibility = View.GONE
                         // If sign in fails, display a message to the user.
-                        Snackbar.make(view, getString(R.string.error_sesion), Snackbar.LENGTH_LONG)
+                        com.google.android.material.snackbar.Snackbar.make(
+                            view,
+                            getString(com.example.garage.R.string.error_sesion),
+                            com.google.android.material.snackbar.Snackbar.LENGTH_LONG
+                        )
                             .show()
                     }
-                }
+                })
         }
+
 
         binding.loginBtnSingUp.setOnClickListener {
             NavHostFragment.findNavController(this)
@@ -116,18 +126,19 @@ class LoginFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        val currentUser = App.getAuth().currentUser
 
 
         if (currentUser != null) {
             Log.d(TAG, currentUser!!.email!!)
             //Log.d(TAG, currentUser!!.displayName!!)
             Log.d(TAG, currentUser!!.uid)
-            goToCars()
+            goToMain()
         }
+
     }
 
-    private fun goToCars() {
+    fun goToMain() {
 
         val intent = Intent(requireContext(), MainActivity::class.java)
         startActivity(intent)

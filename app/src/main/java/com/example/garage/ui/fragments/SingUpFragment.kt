@@ -41,6 +41,7 @@ class SingUpFragment : Fragment() {
         auth = Firebase.auth
 
 
+
         binding.singUpBtnCancelar.setOnClickListener {
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_singUpFragment_to_loginFragment)
