@@ -85,7 +85,7 @@ class LoginFragment : Fragment() {
                 binding.loginTilUser.error = getString(R.string.user_blank)
                 return@setOnClickListener
             }
-            binding.progresBar.visibility = View.VISIBLE // Ponemos la proges bar en visible
+            binding.progresLayout.myProgressBar.visibility = View.VISIBLE
 
             model.login(email.getString(), editPassword.getString())
                 .observe(viewLifecycleOwner, { task ->
@@ -95,7 +95,7 @@ class LoginFragment : Fragment() {
                         goToMain()
 
                     } else {
-                        binding.progresBar.visibility = View.GONE
+                        binding.progresLayout.myProgressBar.visibility = View.GONE
                         // If sign in fails, display a message to the user.
                         com.google.android.material.snackbar.Snackbar.make(
                             view,

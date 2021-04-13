@@ -69,4 +69,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="cerrar_sesion">cerrar_sesion</string>
+    <string name="error_add_user_collection">Ha habido un error en la petición</string>
+    <string name="email_in_use">El e-mail ya esta en uso</string>
+    <string name="action_close">Cerrar Sesión</string>
 </resources>
