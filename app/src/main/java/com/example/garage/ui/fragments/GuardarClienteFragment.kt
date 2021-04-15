@@ -28,7 +28,8 @@ class GuardarClienteFragment : Fragment() {
         val view = binding.root
 
         binding.guardarClienteBtnGuardar.setOnClickListener {
-            //TODO Guardar en Firestore
+
+            val dni = binding.guardarClienteTieDni
             val nombre = binding.guardarClienteTieNombre
             val apellido = binding.guardarClienteTieApellido
             val apellido2 = binding.guardarClienteTieApellido2
@@ -40,6 +41,7 @@ class GuardarClienteFragment : Fragment() {
 
 
             model.saveCliente(
+                dni.getString(),
                 nombre.getString(),
                 apellido.getString(),
                 apellido2.getString(),
@@ -47,7 +49,7 @@ class GuardarClienteFragment : Fragment() {
                 poblacion.getString(),
                 provincia.getString(),
                 cPostal.text.toString().toInt(),
-                telefono.text.toString().toInt()
+                telefono.text.toString().toLong()
             )
 
             NavHostFragment.findNavController(this)

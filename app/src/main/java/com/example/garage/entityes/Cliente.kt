@@ -1,6 +1,7 @@
 package com.example.garage.entityes
 
 data class Cliente(
+    val dni: String,
     val nombre: String,
     val apellido: String,
     val apellido2: String,
@@ -8,7 +9,10 @@ data class Cliente(
     val poblacion: String,
     val provincia: String,
     val cPostal: Int,
-    val telefono: Int
+    val telefono: Long
 ) {
-    constructor(): this("","","","","","",0,0)
+
+    lateinit var id: String
+
+    constructor() : this("", "", "", "", "", "", "", 0, 0)
 }
