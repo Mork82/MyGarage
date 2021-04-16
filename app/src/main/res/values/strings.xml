@@ -72,4 +72,6 @@
     <string name="error_add_user_collection">Ha habido un error en la petición</string>
     <string name="email_in_use">El e-mail ya esta en uso</string>
     <string name="action_close">Cerrar Sesión</string>
+    <string name="search">" Busqueda"</string>
+    <string name="query_dni">Dni del Cliente</string>
 </resources>

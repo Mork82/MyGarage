@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.garage.App
-import com.example.garage.entityes.Usuario
+import com.example.garage.entities.Usuario
 import com.example.garage.utils.Constantes
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult

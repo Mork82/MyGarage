@@ -5,10 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.garage.databinding.ItemClientesRvBinding
-import com.example.garage.entityes.Cliente
+import com.example.garage.entities.Cliente
 
-class ClienteAdapter(val clientes :List<Cliente>) : RecyclerView.Adapter<ClienteAdapter.ClienteViewHolder>() {
-   // val clientes = mutableListOf<Cliente>()
+class ClienteAdapter() :
+    RecyclerView.Adapter<ClienteAdapter.ClienteViewHolder>() {
+    val lista = mutableListOf<Cliente>()
+    private lateinit var listaOriginal: List<Cliente>
+
+    fun clienteAdapter(lista: List<Cliente>) {
+        this.lista.addAll(lista)
+        listaOriginal = lista
+    }
 
     class ClienteViewHolder(val binding: ItemClientesRvBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -35,9 +42,22 @@ class ClienteAdapter(val clientes :List<Cliente>) : RecyclerView.Adapter<Cliente
     }
 
     override fun onBindViewHolder(holder: ClienteViewHolder, position: Int) =
-        holder.rellenarDatosCliente(clientes[position])
+        holder.rellenarDatosCliente(lista[position])
 
 
-    override fun getItemCount() = clientes.size
+    override fun getItemCount() = lista.size
+
+    fun buscar(apellido: String) {
+        val buscador = mutableListOf<Cliente>()
+        for (cliente in listaOriginal) {
+            if (cliente.apellido.toLowerCase().contains(apellido.toLowerCase())) {
+                buscador.add(cliente)
+            }
+
+            lista.clear()
+            lista.addAll(buscador)
+            notifyDataSetChanged()
+        }
+    }
 
 }

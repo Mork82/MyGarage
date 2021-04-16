@@ -1,4 +1,4 @@
-package com.example.garage.entityes
+package com.example.garage.entities
 
 data class Cliente(
     val dni: String,

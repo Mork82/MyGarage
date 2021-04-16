@@ -2,7 +2,6 @@ package com.example.garage.ui.fragments
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.garage.R
-import com.example.garage.entityes.Usuario
+import com.example.garage.entities.Usuario
 import com.example.garage.databinding.FragmentSingUpBinding
 import com.example.garage.viewmodels.UsuarioViewModel
 import com.google.android.material.snackbar.Snackbar

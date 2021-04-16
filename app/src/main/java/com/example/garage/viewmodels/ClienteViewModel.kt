@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.garage.App
-import com.example.garage.entityes.Cliente
+import com.example.garage.entities.Cliente
 import com.example.garage.utils.Constantes
 import com.google.firebase.firestore.ktx.toObjects
 
