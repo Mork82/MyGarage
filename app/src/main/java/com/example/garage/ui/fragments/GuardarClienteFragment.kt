@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.garage.R
 import com.example.garage.databinding.FragmentGuardarClienteBinding
+import com.example.garage.entities.Cliente
 import com.example.garage.viewmodels.ClienteViewModel
 import com.google.android.material.textfield.TextInputEditText
 
@@ -27,7 +28,7 @@ class GuardarClienteFragment : Fragment() {
         val binding = _binding!!
         val view = binding.root
 
-        binding.guardarClienteBtnGuardar.setOnClickListener {
+       val cliente=  binding.guardarClienteBtnGuardar.setOnClickListener {
 
             val dni = binding.guardarClienteTieDni
             val nombre = binding.guardarClienteTieNombre
@@ -40,6 +41,8 @@ class GuardarClienteFragment : Fragment() {
             val telefono = binding.guardarClienteTiePhone
 
 
+
+            //Insertamos datos en base de datos
             model.saveCliente(
                 dni.getString(),
                 nombre.getString(),
@@ -51,7 +54,11 @@ class GuardarClienteFragment : Fragment() {
                 cPostal.text.toString().toInt(),
                 telefono.text.toString().toLong()
             )
+            //Creamos la lista de clientes en el usuario y añadimos el cliente que se acaba de crear
+           // model.insertarClienteEnUsuario()
 
+
+            //Navegamos a al fragment anterior
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_guardarClienteFragment_to_nav_home)
         }
@@ -61,6 +68,8 @@ class GuardarClienteFragment : Fragment() {
 
         return view
     }
+
+
 
     fun TextInputEditText.getString(): String {
         return text.toString()

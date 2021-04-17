@@ -10,7 +10,7 @@ data class Cliente(
     val provincia: String,
     val cPostal: Int,
     val telefono: Long
-) {
+)  {
 
     lateinit var id: String
 
