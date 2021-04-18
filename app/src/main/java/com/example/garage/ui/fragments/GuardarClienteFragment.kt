@@ -27,8 +27,7 @@ class GuardarClienteFragment : Fragment() {
         _binding = FragmentGuardarClienteBinding.inflate(inflater, container, false)
         val binding = _binding!!
         val view = binding.root
-
-       val cliente=  binding.guardarClienteBtnGuardar.setOnClickListener {
+        binding.guardarClienteBtnGuardar.setOnClickListener {
 
             val dni = binding.guardarClienteTieDni
             val nombre = binding.guardarClienteTieNombre
@@ -39,7 +38,6 @@ class GuardarClienteFragment : Fragment() {
             val provincia = binding.guardarClienteTieProvincia
             val cPostal = binding.guardarClienteTieCp
             val telefono = binding.guardarClienteTiePhone
-
 
 
             //Insertamos datos en base de datos
@@ -54,8 +52,7 @@ class GuardarClienteFragment : Fragment() {
                 cPostal.text.toString().toInt(),
                 telefono.text.toString().toLong()
             )
-            //Creamos la lista de clientes en el usuario y añadimos el cliente que se acaba de crear
-           // model.insertarClienteEnUsuario()
+
 
 
             //Navegamos a al fragment anterior
@@ -68,7 +65,6 @@ class GuardarClienteFragment : Fragment() {
 
         return view
     }
-
 
 
     fun TextInputEditText.getString(): String {

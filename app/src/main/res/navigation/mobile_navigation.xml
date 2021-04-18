@@ -23,6 +23,24 @@
             android:id="@+id/action_guardarClienteFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
+    <fragment
+        android:id="@+id/vehiculoFragment"
+        android:name="com.example.garage.ui.fragments.VehiculoFragment"
+        android:label="VehiculoFragment"
+        tools:layout="@layout/fragment_vehiculo">
+        <action
+            android:id="@+id/action_vehiculoFragment_to_guardarVehiculoFragment"
+            app:destination="@id/guardarVehiculoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/guardarVehiculoFragment"
+        android:name="com.example.garage.ui.fragments.GuardarVehiculoFragment"
+        android:label="fragment_guardar_vehiculo"
+        tools:layout="@layout/fragment_guardar_vehiculo" >
+        <action
+            android:id="@+id/action_guardarVehiculoFragment_to_vehiculoFragment"
+            app:destination="@id/vehiculoFragment" />
+    </fragment>
 
 
 </navigation>

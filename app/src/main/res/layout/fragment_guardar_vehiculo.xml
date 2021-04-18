@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.GuardarVehiculoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/_insertar_vehiculos_guide_v90_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/_insertar_vehiculos_guide_v10_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/_insertar_vehiculos_guide_h90_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <ImageView
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/logo_korki"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/_insertar_vehiculos_guide_v90_2"
+            app:layout_constraintStart_toStartOf="@+id/_insertar_vehiculos_guide_v10_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/_insertar_vehiculos_guide_v90"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/_insertar_vehiculos_guide_v10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.1" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/_insertar_vehiculos_guide_h90"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/insertar_vehiculo_btn_guardar"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="500dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/guardar_vehiculo"
+                    android:textColor="@color/white"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_save"
+                    app:iconGravity="start"
+                    app:iconTint="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/_insertar_vehiculos_guide_h90"
+                    app:layout_constraintEnd_toStartOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toEndOf="@id/_insertar_vehiculos_guide_v10"
+                    app:strokeColor="@color/purple_700"
+                    app:strokeWidth="3dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/insertar_vehiculo_til_km"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/km"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/purple_700"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/insertar_vehiculo_btn_guardar"
+                    app:layout_constraintEnd_toEndOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toStartOf="@id/_insertar_vehiculos_guide_v10">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/insertar_veviculo_tie_km"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:maxLength="6" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/insertar_vehiculo_til_neumaticos"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/neumaticos"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/purple_700"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/insertar_vehiculo_til_km"
+                    app:layout_constraintEnd_toEndOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toStartOf="@id/_insertar_vehiculos_guide_v10">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/insertar_veviculo_tie_neumaticos"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/insertar_vehiculo_til_color"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/color_vehiculo"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/purple_700"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/insertar_vehiculo_til_neumaticos"
+                    app:layout_constraintEnd_toEndOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toStartOf="@id/_insertar_vehiculos_guide_v10">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/insertar_veviculo_tie_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/insertar_vehiculo_til_modelo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/modelo"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/purple_700"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/insertar_vehiculo_til_color"
+                    app:layout_constraintEnd_toEndOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toStartOf="@id/_insertar_vehiculos_guide_v10">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/insertar_veviculo_tie_modelo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/insertar_vehiculo_til_marca"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/marca"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/purple_700"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/insertar_vehiculo_til_modelo"
+                    app:layout_constraintEnd_toEndOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toStartOf="@id/_insertar_vehiculos_guide_v10">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/insertar_veviculo_tie_marca"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/insertar_vehiculo_til_bastidor"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/bastidor"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/purple_700"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/insertar_vehiculo_til_marca"
+                    app:layout_constraintEnd_toEndOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toStartOf="@id/_insertar_vehiculos_guide_v10">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/insertar_veviculo_tie_bastidor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/insertar_vehiculo_til_matricula"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/matricula"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/purple_700"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/insertar_vehiculo_til_bastidor"
+                    app:layout_constraintEnd_toEndOf="@id/_insertar_vehiculos_guide_v90"
+                    app:layout_constraintStart_toStartOf="@id/_insertar_vehiculos_guide_v10">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/insertar_veviculo_tie_matricula"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </ScrollView>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

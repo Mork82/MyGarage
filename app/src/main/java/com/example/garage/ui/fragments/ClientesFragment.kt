@@ -80,9 +80,6 @@ class ClientesFragment : Fragment() {
                        return true
                    }
                })
-
-
-
             }
         }
         return false

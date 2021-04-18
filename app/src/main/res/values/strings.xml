@@ -73,5 +73,9 @@
     <string name="email_in_use">El e-mail ya esta en uso</string>
     <string name="action_close">Cerrar Sesión</string>
     <string name="search">" Busqueda"</string>
-    <string name="query_dni">Dni del Cliente</string>
+    <string name="query_dni">Apellido del Cliente</string>
+    <string name="vehiculos_fragmnety_title">Vehículos</string>
+    <string name="menu_vehiculos">Vehículos</string>
+    <string name="menu_clientes">Clientes</string>
+    <string name="query_matricula">Matricula</string>
 </resources>
