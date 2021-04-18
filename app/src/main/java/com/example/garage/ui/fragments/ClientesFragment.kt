@@ -1,5 +1,6 @@
 package com.example.garage.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -12,13 +13,14 @@ import com.example.garage.R
 import com.example.garage.adapters.ClienteAdapter
 import com.example.garage.databinding.FragmentClientesBinding
 import com.example.garage.entities.Cliente
+import com.example.garage.ui.activitys.DatosClienteActivity
 import com.example.garage.viewmodels.ClienteViewModel
 
-class ClientesFragment : Fragment() {
+class ClientesFragment : Fragment(), ClienteAdapter.OnClienteClickListener {
 
     private val model: ClienteViewModel by viewModels()
     private var _binding: FragmentClientesBinding? = null
-    var mAdapter = ClienteAdapter()
+    var mAdapter = ClienteAdapter(this)
 
 
     override fun onCreateView(
@@ -47,7 +49,7 @@ class ClientesFragment : Fragment() {
         return view
     }
 
-    fun createRecyclerView(clientes: List<Cliente>) {
+    private fun createRecyclerView(clientes: List<Cliente>) {
         mAdapter.clienteAdapter(clientes)
         val rv = _binding!!.recylerViewClientes
         rv.apply {
@@ -83,5 +85,18 @@ class ClientesFragment : Fragment() {
             }
         }
         return false
+    }
+
+    override fun onItemClick(item: Cliente, position: Int) {
+       val intent = Intent(requireContext(),DatosClienteActivity::class.java)
+        intent.putExtra("Nombre", item.nombre)
+        intent.putExtra("Apellido", item.apellido)
+        intent.putExtra("Apellido2", item.apellido2)
+        intent.putExtra("Direccion", item.direccion)
+        intent.putExtra("Poblacion", item.poblacion)
+        intent.putExtra("Provincia", item.provincia)
+        intent.putExtra("CP", item.cPostal)
+        intent.putExtra("Telefono",item.telefono)
+        startActivity(intent)
     }
 }

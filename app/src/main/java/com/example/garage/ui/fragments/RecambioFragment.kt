@@ -1,5 +1,6 @@
 package com.example.garage.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -9,16 +10,18 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.garage.R
+import com.example.garage.adapters.OnRecambioClickListener
 import com.example.garage.adapters.RecambioAdapter
 import com.example.garage.databinding.FragmentRecambioBinding
 import com.example.garage.entities.Recambio
+import com.example.garage.ui.activitys.DatosRecambioActivity
 import com.example.garage.viewmodels.RecambioViewModel
 
 
-class RecambioFragment : Fragment() {
+class RecambioFragment : Fragment(), OnRecambioClickListener {
     private var _binding : FragmentRecambioBinding?=null
     private val model: RecambioViewModel by viewModels()
-    var mAdapter= RecambioAdapter()
+    var mAdapter= RecambioAdapter(this)
 
 
 
@@ -76,5 +79,12 @@ class RecambioFragment : Fragment() {
             }
         }
         return false
+    }
+
+    override fun onItemClick(item: Recambio, position: Int) {
+        val intent = Intent(requireContext(),DatosRecambioActivity::class.java)
+        intent.putExtra("Referencia", item.referencia)
+        intent.putExtra("Articulo", item.articulo)
+        intent.putExtra("Descripcion", item.descipcion)
     }
 }

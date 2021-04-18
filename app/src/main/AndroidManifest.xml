@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.garage">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -11,21 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigation">
-        <activity android:name="com.example.garage.ui.activitys.LoginActivity">
+        <activity android:name=".ui.activitys.DatosVehiculoActivity"></activity>
+        <activity android:name=".ui.activitys.DatosRecambioActivity" />
+        <activity android:name=".ui.activitys.DatosClienteActivity" />
+        <activity android:name=".ui.activitys.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
-            android:name="com.example.garage.ui.activitys.MainActivity"
+            android:name=".ui.activitys.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Navigation.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Navigation.NoActionBar" />
     </application>
 
 </manifest>

@@ -1,13 +1,19 @@
 package com.example.garage.adapters
 
 
+import android.app.Activity
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.garage.App
 import com.example.garage.databinding.ItemClientesRvBinding
 import com.example.garage.entities.Cliente
+import com.google.android.material.snackbar.Snackbar
 
-class ClienteAdapter:
+class ClienteAdapter(var clickListener: OnClienteClickListener):
     RecyclerView.Adapter<ClienteAdapter.ClienteViewHolder>() {
     val lista = mutableListOf<Cliente>()
     private lateinit var listaOriginal: List<Cliente>
@@ -24,7 +30,7 @@ class ClienteAdapter:
     }
 
     override fun onBindViewHolder(holder: ClienteViewHolder, position: Int) =
-        holder.rellenarDatosCliente(lista[position])
+        holder.rellenarDatosCliente(lista[position], clickListener)
 
 
     override fun getItemCount() = lista.size
@@ -45,10 +51,16 @@ class ClienteAdapter:
     class ClienteViewHolder(val binding: ItemClientesRvBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun rellenarDatosCliente(cliente: Cliente) {
+        fun rellenarDatosCliente(cliente: Cliente, action:OnClienteClickListener) {
             binding.itemClienteTvNombre.text = cliente.nombre
             binding.itemClienteTvApellido.text = cliente.apellido
             binding.itemClienteTvDni.text = cliente.dni
+
+
+            binding.root.setOnClickListener {
+                action.onItemClick(cliente,adapterPosition )
+
+            }
         }
 
         companion object {
@@ -58,6 +70,9 @@ class ClienteAdapter:
                 return ClienteViewHolder(binding)
             }
         }
+    }
+    interface OnClienteClickListener {
+        fun onItemClick(item: Cliente, position: Int)
     }
 
 }

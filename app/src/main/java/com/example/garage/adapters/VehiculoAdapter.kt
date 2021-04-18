@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.garage.databinding.ItemVehiculosRecyclerViewBinding
+import com.example.garage.entities.Cliente
 import com.example.garage.entities.Vehiculo
 
-class VehiculoAdapter : RecyclerView.Adapter<VehiculoAdapter.VehiculoViewHolder>() {
+class VehiculoAdapter(var clicklListener: OnVehiculoClickListener) :
+    RecyclerView.Adapter<VehiculoAdapter.VehiculoViewHolder>() {
     val lista = mutableListOf<Vehiculo>()
     private lateinit var listaOriginal: List<Vehiculo>
 
@@ -21,7 +23,7 @@ class VehiculoAdapter : RecyclerView.Adapter<VehiculoAdapter.VehiculoViewHolder>
     }
 
     override fun onBindViewHolder(holder: VehiculoViewHolder, position: Int) =
-        holder.rellenarDatosVehiculo(lista[position])
+        holder.rellenarDatosVehiculo(lista[position], clicklListener)
 
     override fun getItemCount() = lista.size
 
@@ -43,7 +45,7 @@ class VehiculoAdapter : RecyclerView.Adapter<VehiculoAdapter.VehiculoViewHolder>
     class VehiculoViewHolder(val binding: ItemVehiculosRecyclerViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun rellenarDatosVehiculo(vehiculo: Vehiculo) {
+        fun rellenarDatosVehiculo(vehiculo: Vehiculo, action: OnVehiculoClickListener) {
             binding.itemVehiculoTvMatricula.text = vehiculo.matricula
             binding.itemVehiculoTvMarca.text = vehiculo.marca
             binding.itemVehiculoTvModelo.text = vehiculo.modelo
@@ -59,4 +61,9 @@ class VehiculoAdapter : RecyclerView.Adapter<VehiculoAdapter.VehiculoViewHolder>
         }
 
     }
+}
+
+interface OnVehiculoClickListener {
+    fun onItemClick(item: Vehiculo, position: Int)
+
 }

@@ -4,15 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.garage.databinding.ItemRecambioRecyclerViewBinding
+import com.example.garage.entities.Cliente
 import com.example.garage.entities.Recambio
 
-class RecambioAdapter : RecyclerView.Adapter<RecambioAdapter.RecambioViewHolder>() {
+class RecambioAdapter(val clickListener: OnRecambioClickListener) :
+    RecyclerView.Adapter<RecambioAdapter.RecambioViewHolder>() {
     val lista = mutableListOf<Recambio>()
     private lateinit var listaOriginal: List<Recambio>
 
-    fun recambioAdapter(lista:List<Recambio>){
+    fun recambioAdapter(lista: List<Recambio>) {
         this.lista.addAll(lista)
-        listaOriginal= lista
+        listaOriginal = lista
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecambioViewHolder {
@@ -20,7 +22,7 @@ class RecambioAdapter : RecyclerView.Adapter<RecambioAdapter.RecambioViewHolder>
     }
 
     override fun onBindViewHolder(holder: RecambioViewHolder, position: Int) =
-        holder.rellenarDatosRecambio(lista[position])
+        holder.rellenarDatosRecambio(lista[position], clickListener)
 
     override fun getItemCount() = lista.size
 
@@ -41,10 +43,13 @@ class RecambioAdapter : RecyclerView.Adapter<RecambioAdapter.RecambioViewHolder>
     class RecambioViewHolder(var binding: ItemRecambioRecyclerViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun rellenarDatosRecambio(recambio: Recambio) {
+        fun rellenarDatosRecambio(recambio: Recambio, action: OnRecambioClickListener) {
             binding.itemRecambioTvReferencia.text = recambio.referencia
             binding.itemRecambioTvArticulo.text = recambio.articulo
             binding.itemRecambioTvDescripcion.text = recambio.descipcion
+            binding.root.setOnClickListener {
+                action.onItemClick(recambio, adapterPosition)
+            }
 
 
         }
@@ -60,5 +65,10 @@ class RecambioAdapter : RecyclerView.Adapter<RecambioAdapter.RecambioViewHolder>
 
     }
 
+
+}
+
+interface OnRecambioClickListener {
+    fun onItemClick(item: Recambio, position: Int)
 
 }

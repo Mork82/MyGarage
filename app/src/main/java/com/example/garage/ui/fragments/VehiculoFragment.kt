@@ -1,5 +1,6 @@
 package com.example.garage.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -9,16 +10,18 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.garage.R
+import com.example.garage.adapters.OnVehiculoClickListener
 import com.example.garage.adapters.VehiculoAdapter
 import com.example.garage.databinding.FragmentVehiculoBinding
 import com.example.garage.entities.Vehiculo
+import com.example.garage.ui.activitys.DatosVehiculoActivity
 import com.example.garage.viewmodels.VehiculoViewModel
 
 
-class VehiculoFragment : Fragment() {
+class VehiculoFragment : Fragment(),OnVehiculoClickListener {
     private var _binding: FragmentVehiculoBinding? = null
     private val model :VehiculoViewModel by viewModels()
-    var mAdapter = VehiculoAdapter()
+    var mAdapter = VehiculoAdapter(this)
 
 
     override fun onCreateView(
@@ -81,6 +84,17 @@ class VehiculoFragment : Fragment() {
             }
         }
         return false
+    }
+
+    override fun onItemClick(item: Vehiculo, position: Int) {
+        val intent= Intent(requireContext(), DatosVehiculoActivity::class.java)
+        intent.putExtra("Matricula", item.matricula)
+        intent.putExtra("bastidor", item.bastidor)
+        intent.putExtra("Marca",item.marca)
+        intent.putExtra("Modelo", item.modelo)
+        intent.putExtra("Color", item.color)
+        intent.putExtra("Neumaticos", item.neumaticos)
+        intent.putExtra("Km", item.kilometros)
     }
 
 
