@@ -41,6 +41,24 @@
             android:id="@+id/action_guardarVehiculoFragment_to_vehiculoFragment"
             app:destination="@id/vehiculoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/recambioFragment"
+        android:name="com.example.garage.ui.fragments.RecambioFragment"
+        android:label="fragment_recambio"
+        tools:layout="@layout/fragment_recambio" >
+        <action
+            android:id="@+id/action_recambioFragment2_to_guardarRecambioFragment"
+            app:destination="@id/guardarRecambioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/guardarRecambioFragment"
+        android:name="com.example.garage.ui.fragments.GuardarRecambioFragment"
+        android:label="fragment_guardar_recambio"
+        tools:layout="@layout/fragment_guardar_recambio" >
+        <action
+            android:id="@+id/action_guardarRecambioFragment_to_recambioFragment2"
+            app:destination="@id/recambioFragment" />
+    </fragment>
 
 
 </navigation>

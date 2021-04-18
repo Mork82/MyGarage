@@ -78,4 +78,7 @@
     <string name="menu_vehiculos">Vehículos</string>
     <string name="menu_clientes">Clientes</string>
     <string name="query_matricula">Matricula</string>
+    <string name="menu_recambios">Recambios</string>
+    <string name="desdripcion">Descripción del producto</string>
+    <string name="query_ref">Referencia</string>
 </resources>

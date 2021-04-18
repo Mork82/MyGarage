@@ -5,5 +5,6 @@ class Constantes {
         val USUARIOS = "users"
         val CLIENTES = "clientes"
         val VEHICULO= "vehiculo"
+        val RECAMBIO= "recambio"
     }
 }

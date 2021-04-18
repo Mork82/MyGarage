@@ -21,7 +21,7 @@ class VehiculoAdapter : RecyclerView.Adapter<VehiculoAdapter.VehiculoViewHolder>
     }
 
     override fun onBindViewHolder(holder: VehiculoViewHolder, position: Int) =
-        holder.rellenarDtaosVehiculo(lista[position])
+        holder.rellenarDatosVehiculo(lista[position])
 
     override fun getItemCount() = lista.size
 
@@ -43,7 +43,7 @@ class VehiculoAdapter : RecyclerView.Adapter<VehiculoAdapter.VehiculoViewHolder>
     class VehiculoViewHolder(val binding: ItemVehiculosRecyclerViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun rellenarDtaosVehiculo(vehiculo: Vehiculo) {
+        fun rellenarDatosVehiculo(vehiculo: Vehiculo) {
             binding.itemVehiculoTvMatricula.text = vehiculo.matricula
             binding.itemVehiculoTvMarca.text = vehiculo.marca
             binding.itemVehiculoTvModelo.text = vehiculo.modelo

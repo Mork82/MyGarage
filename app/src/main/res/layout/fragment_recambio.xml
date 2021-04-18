@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.RecambioFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/recambio_guide_v90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/recambio_guide_v10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/recambio_guide_h90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/recambio_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_700"
+        android:contentDescription="@string/anyadir_recambio"
+        android:src="@drawable/ic__spare_parts"
+        app:layout_constraintBottom_toTopOf="@id/recambio_guide_h90"
+        app:layout_constraintEnd_toStartOf="@id/recambio_guide_v90" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_recambio"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recambio_guide_h90"
+        app:layout_constraintEnd_toEndOf="@id/recambio_guide_v90"
+        app:layout_constraintStart_toStartOf="@id/recambio_guide_v10"
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_recambio_recycler_view" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

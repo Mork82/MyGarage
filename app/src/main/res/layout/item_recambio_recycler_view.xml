@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="25dp"
+    android:layout_marginTop="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginBottom="25dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="10dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_recambio_tv_referencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Referencia del recambio"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_recambio_tv_articulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Nombre del recambio"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_recambio_tv_descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Nombre de la familia"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

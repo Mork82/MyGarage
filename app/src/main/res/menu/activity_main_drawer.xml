@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_car"
             android:title="@string/menu_vehiculos"
             />
+        <item
+            android:id="@+id/recambioFragment"
+            android:icon="@drawable/ic__spare_parts"
+            android:title="@string/menu_recambios"/>
 
     </group>
 </menu>

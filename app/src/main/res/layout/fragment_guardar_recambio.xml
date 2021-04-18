@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.fragments.GuardarRecambioFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guardar_recambio_guide_v90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gusrdar_recambio_guide_v10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guardar_recambio_guide_h90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/guardar_recambio_btn_guardar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="500dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/black"
+            android:text="@string/guardar_recambio"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_save"
+            app:iconGravity="start"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/guardar_recambio_guide_h90"
+            app:layout_constraintEnd_toStartOf="@id/guardar_recambio_guide_v90"
+            app:layout_constraintStart_toEndOf="@id/gusrdar_recambio_guide_v10"
+            app:strokeColor="@color/purple_700"
+            app:strokeWidth="3dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/guardar_recambio_til_descrpcion"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="@string/desdripcion"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxStrokeColor="@color/purple_700"
+            app:boxStrokeWidth="2dp"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toTopOf="@+id/guardar_recambio_btn_guardar"
+            app:layout_constraintEnd_toEndOf="@id/guardar_recambio_guide_v90"
+            app:layout_constraintStart_toStartOf="@id/gusrdar_recambio_guide_v10">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/guardar_recambio_tie_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/guardar_recambio_til_articulo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="@string/articulo"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxStrokeColor="@color/purple_700"
+            app:boxStrokeWidth="2dp"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toTopOf="@+id/guardar_recambio_til_descrpcion"
+            app:layout_constraintEnd_toEndOf="@id/guardar_recambio_guide_v90"
+            app:layout_constraintStart_toStartOf="@id/gusrdar_recambio_guide_v10">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/guardar_recambio_tie_articulo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/guardar_recambio_til_referencia"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="@string/referencia"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxStrokeColor="@color/purple_700"
+            app:boxStrokeWidth="2dp"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toTopOf="@+id/guardar_recambio_til_articulo"
+            app:layout_constraintEnd_toEndOf="@id/guardar_recambio_guide_v90"
+            app:layout_constraintStart_toStartOf="@id/gusrdar_recambio_guide_v10">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/guardar_recambio_tie_referencia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
