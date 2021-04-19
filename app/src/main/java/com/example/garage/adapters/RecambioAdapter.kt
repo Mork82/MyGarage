@@ -47,6 +47,7 @@ class RecambioAdapter(val clickListener: OnRecambioClickListener) :
             binding.itemRecambioTvReferencia.text = recambio.referencia
             binding.itemRecambioTvArticulo.text = recambio.articulo
             binding.itemRecambioTvDescripcion.text = recambio.descipcion
+
             binding.root.setOnClickListener {
                 action.onItemClick(recambio, adapterPosition)
             }
@@ -65,10 +66,11 @@ class RecambioAdapter(val clickListener: OnRecambioClickListener) :
 
     }
 
+    interface OnRecambioClickListener {
+        fun onItemClick(item: Recambio, position: Int)
+    }
+
 
 }
 
-interface OnRecambioClickListener {
-    fun onItemClick(item: Recambio, position: Int)
 
-}

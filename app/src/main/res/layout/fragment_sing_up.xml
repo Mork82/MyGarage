@@ -3,7 +3,6 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -68,7 +67,7 @@
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/sing_up_til_repetir_contraseña"
+        android:id="@+id/sing_up_til_repetir_contrasenya"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -96,7 +95,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/sing_up_til_contraseña"
+        android:id="@+id/sing_up_til_contrasenya"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -110,7 +109,7 @@
         app:boxStrokeColor="@color/purple_200"
         app:boxStrokeWidth="2dp"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toTopOf="@id/sing_up_til_repetir_contraseña"
+        app:layout_constraintBottom_toTopOf="@id/sing_up_til_repetir_contrasenya"
         app:layout_constraintEnd_toStartOf="@id/sing_up_guideV9"
         app:layout_constraintStart_toEndOf="@id/sing_up_guideV1">
 
@@ -137,7 +136,7 @@
         app:boxStrokeColor="@color/purple_200"
         app:boxStrokeWidth="2dp"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toTopOf="@id/sing_up_til_contraseña"
+        app:layout_constraintBottom_toTopOf="@id/sing_up_til_contrasenya"
         app:layout_constraintEnd_toStartOf="@id/sing_up_guideV9"
         app:layout_constraintStart_toEndOf="@id/sing_up_guideV1">
 
@@ -239,7 +238,8 @@
         app:layout_constraintBottom_toTopOf="@id/sing_up_til_name"
         app:layout_constraintEnd_toStartOf="@+id/sing_up_guideV9"
         app:layout_constraintStart_toStartOf="@+id/sing_up_guideV1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/content_description_logo_de_la_app"/>
 
     <include
         layout="@layout/my_progres_bar"

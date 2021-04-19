@@ -69,18 +69,7 @@
         app:strokeColor="@color/purple_700"
         app:strokeWidth="3dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_btn_restore"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="180dp"
-        android:text="@string/recover_password"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@id/login_btn_login"
-        app:layout_constraintEnd_toStartOf="@id/login_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/login_Vguide10"
-        app:layout_constraintTop_toBottomOf="@+id/login_til_password" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_til_password"
@@ -119,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/white"
-        android:hint="@string/hint_user"
+        android:hint="@string/hint_email"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -140,6 +129,7 @@
             android:id="@+id/login_tie_user"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+         android:imeOptions="actionPrevious"
             android:inputType="textPassword" />
 
 

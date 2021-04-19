@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.RecambioFragment">
+    tools:context=".ui.fragments.RecambioFragment"
+    android:background="@drawable/fondo">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/recambio_guide_v90"

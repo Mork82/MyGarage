@@ -10,7 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.garage.R
-import com.example.garage.adapters.OnRecambioClickListener
+
 import com.example.garage.adapters.RecambioAdapter
 import com.example.garage.databinding.FragmentRecambioBinding
 import com.example.garage.entities.Recambio
@@ -18,7 +18,7 @@ import com.example.garage.ui.activitys.DatosRecambioActivity
 import com.example.garage.viewmodels.RecambioViewModel
 
 
-class RecambioFragment : Fragment(), OnRecambioClickListener {
+class RecambioFragment : Fragment(), RecambioAdapter.OnRecambioClickListener {
     private var _binding : FragmentRecambioBinding?=null
     private val model: RecambioViewModel by viewModels()
     var mAdapter= RecambioAdapter(this)
@@ -28,7 +28,7 @@ class RecambioFragment : Fragment(), OnRecambioClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding= FragmentRecambioBinding.inflate(inflater,container,false)
         val binding=_binding!!
@@ -86,5 +86,6 @@ class RecambioFragment : Fragment(), OnRecambioClickListener {
         intent.putExtra("Referencia", item.referencia)
         intent.putExtra("Articulo", item.articulo)
         intent.putExtra("Descripcion", item.descipcion)
+        startActivity(intent)
     }
 }

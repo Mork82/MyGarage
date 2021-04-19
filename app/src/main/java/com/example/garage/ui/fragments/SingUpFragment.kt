@@ -2,6 +2,8 @@ package com.example.garage.ui.fragments
 
 
 import android.os.Bundle
+import android.util.Patterns
+import android.util.Patterns.*
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +18,10 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+
 import com.google.firebase.firestore.FirebaseFirestoreException
 import java.util.*
+import java.util.regex.Pattern
 
 
 class SingUpFragment : Fragment() {
@@ -30,7 +33,7 @@ class SingUpFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSingUpBinding.inflate(inflater, container, false)
         val binding = _binding!!
         val view = binding.root
@@ -42,17 +45,42 @@ class SingUpFragment : Fragment() {
         binding.singUpBtnCancelar.setOnClickListener {
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_singUpFragment_to_loginFragment)
+
         }
         binding.singUpBtnAceptar.setOnClickListener {
             val email = binding.singUpTieEmail
             val password1 = binding.singUpTiePass1
-
-            if (email.getString().isNullOrBlank()) {
-                Snackbar.make(view, R.string.field_null, Snackbar.LENGTH_LONG).show()
+            val password2 = binding.singUpTiePass2
+            //Comprobacion para saber si el email esta en blanco
+            if (EMAIL_ADDRESS.matcher(email.getString()).matches() && email.getString().isBlank()) {
+                Snackbar.make(view, getString(R.string.email_null), Snackbar.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-            if (password1.getString().isNullOrBlank()) {
-                Snackbar.make(view, R.string.field_null, Snackbar.LENGTH_LONG).show()
+           /* if (validarEmail(email.getString())!=true){
+                Snackbar.make(view,"El formato del email debe ser correcto",Snackbar.LENGTH_LONG)
+
+                }*/
+            //Comnprobacion para saber si el pass esta en blanco
+            if (password1.getString().isBlank()) {
+                Snackbar.make(view, getString(R.string.password_null), Snackbar.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            //Comnprobacion para saber si el pas 2 esta en blanco
+            if (password2.getString().isBlank()) {
+                Snackbar.make(view, R.string.password_null, Snackbar.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            //Comprobacion par saber si el password tiene mas de 6 caracteres
+            if (password1.getString().length < 6) {
+                binding.singUpTilContrasenya.error = getString(R.string.password_weak)
+                return@setOnClickListener
+
+            }
+            //Comprbacion para saber si los dos passwords son iguales
+            if (!password1.getString().equals(password2.getString())) {
+                binding.singUpTilContrasenya.error = getString(R.string.contrasenyas_iguales)
+                binding.singUpTilRepetirContrasenya.error =
+                    getString(R.string.contrasenyas_iguales)
                 return@setOnClickListener
             }
             val usuario = Usuario(
@@ -70,7 +98,7 @@ class SingUpFragment : Fragment() {
 
                         binding.progresLayout.myProgressBar.visibility = View.GONE
 
-                        } else {
+                    } else {
                         when (exception) {
                             is FirebaseAuthUserCollisionException -> {
                                 Snackbar.make(
@@ -96,14 +124,14 @@ class SingUpFragment : Fragment() {
                                 ).show()
 
                             }
-                            is FirebaseAuthWeakPasswordException -> {
+                           /* is FirebaseAuthWeakPasswordException -> {
                                 Snackbar.make(
                                     view,
                                     getString(R.string.password_weak),
                                     Snackbar.LENGTH_LONG
                                 ).show()
 
-                            }
+                            }*/
                             else -> {
                                 Snackbar.make(
                                     view,
@@ -127,6 +155,8 @@ class SingUpFragment : Fragment() {
 
         return view
     }
+
+
 
     fun TextInputEditText.getString(): String {
         return text.toString()

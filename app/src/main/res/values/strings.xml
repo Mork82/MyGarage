@@ -81,4 +81,13 @@
     <string name="menu_recambios">Recambios</string>
     <string name="desdripcion">Descripción del producto</string>
     <string name="query_ref">Referencia</string>
+    <string name="menu_vehiculo">Vehiculos</string>
+    <string name="menu_guardar_clientes">Insertar nuevo cliente</string>
+    <string name="menu_guardar_recambios">Insertar nuevo recambio</string>
+    <string name="menu_guardar_vehiculos">Insertar nuevo vehiculo</string>
+    <string name="hint_email">E-mail</string>
+    <string name="contrasenyas_iguales">Las contraseñas han de ser iguales</string>
+    <string name="email_null">El campo email no puede estar vacio</string>
+    <string name="password_null">La contraseña no puede estar vacia</string>
+    <string name="content_description_logo_de_la_app">Logo de la app</string>
 </resources>

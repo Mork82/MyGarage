@@ -33,7 +33,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         val view = _binding!!.root
@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
             }
         }
 
-        //texto añadido donde co mprabamos que el edit text tiene suçize caracteres
+        //texto añadido donde comprabamos que el edit text tiene suçize caracteres
         binding.loginTiePassword.addTextChangedListener {
             val size = it!!.length
             if (size < 6) {
@@ -97,10 +97,10 @@ class LoginFragment : Fragment() {
                     } else {
                         binding.progresLayout.myProgressBar.visibility = View.GONE
                         // If sign in fails, display a message to the user.
-                        com.google.android.material.snackbar.Snackbar.make(
+                  Snackbar.make(
                             view,
-                            getString(com.example.garage.R.string.error_sesion),
-                            com.google.android.material.snackbar.Snackbar.LENGTH_LONG
+                            getString(R.string.error_sesion),
+                            Snackbar.LENGTH_LONG
                         )
                             .show()
                     }
@@ -113,10 +113,7 @@ class LoginFragment : Fragment() {
                 .navigate(R.id.action_loginFragment_to_singUpFragment)
         }
 
-        binding.loginBtnRestore.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_loginFragment_to_recoverPassFragment)
-        }
+
 
 
         return view
@@ -130,20 +127,20 @@ class LoginFragment : Fragment() {
 
 
         if (currentUser != null) {
-            Log.d(TAG, currentUser!!.email!!)
+            Log.d(TAG, currentUser.email!!)
             //Log.d(TAG, currentUser!!.displayName!!)
-            Log.d(TAG, currentUser!!.uid)
+            Log.d(TAG, currentUser.uid)
             goToMain()
         }
 
     }
 
     fun goToMain() {
-
         val intent = Intent(requireContext(), MainActivity::class.java)
         startActivity(intent)
 
     }
+
 
     fun TextInputEditText.getString(): String {
         return text.toString()

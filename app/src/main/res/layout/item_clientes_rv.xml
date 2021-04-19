@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,38 +8,54 @@
     android:layout_marginTop="25dp"
     android:layout_marginEnd="25dp"
     android:layout_marginBottom="25dp"
-    app:cardCornerRadius="15dp"
-    app:cardElevation="10dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    app:strokeColor="@color/black"
+    app:strokeWidth="2dp"
+    android:backgroundTint="@color/white">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingStart="25dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_client"/>
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="4">
+
+
+
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_cliente_tv_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="TEXTO DE PRUEBA NOMBRE" />
+                tools:text="TEXTO DE PRUEBA NOMBRE"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_cliente_tv_apellido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 tools:text="TEXTO DE PRUEBA Apellido" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_cliente_tv_dni"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="TEXTO DE PRUEBA DNI" />
+                tools:text="TEXTO DE PRUEBA DNI"
+                android:layout_marginBottom="5dp" />
 
 
         </LinearLayout>
@@ -48,4 +64,4 @@
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

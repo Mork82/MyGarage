@@ -49,6 +49,11 @@ class VehiculoAdapter(var clicklListener: OnVehiculoClickListener) :
             binding.itemVehiculoTvMatricula.text = vehiculo.matricula
             binding.itemVehiculoTvMarca.text = vehiculo.marca
             binding.itemVehiculoTvModelo.text = vehiculo.modelo
+
+            binding.root.setOnClickListener {
+                action.onItemClick(vehiculo,adapterPosition )
+
+            }
         }
 
         companion object {
@@ -61,9 +66,10 @@ class VehiculoAdapter(var clicklListener: OnVehiculoClickListener) :
         }
 
     }
+    interface OnVehiculoClickListener {
+        fun onItemClick(item: Vehiculo, position: Int)
+
+    }
 }
 
-interface OnVehiculoClickListener {
-    fun onItemClick(item: Vehiculo, position: Int)
 
-}

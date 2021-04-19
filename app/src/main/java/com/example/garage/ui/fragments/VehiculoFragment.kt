@@ -10,7 +10,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.garage.R
-import com.example.garage.adapters.OnVehiculoClickListener
 import com.example.garage.adapters.VehiculoAdapter
 import com.example.garage.databinding.FragmentVehiculoBinding
 import com.example.garage.entities.Vehiculo
@@ -18,7 +17,7 @@ import com.example.garage.ui.activitys.DatosVehiculoActivity
 import com.example.garage.viewmodels.VehiculoViewModel
 
 
-class VehiculoFragment : Fragment(),OnVehiculoClickListener {
+class VehiculoFragment : Fragment(),VehiculoAdapter.OnVehiculoClickListener {
     private var _binding: FragmentVehiculoBinding? = null
     private val model :VehiculoViewModel by viewModels()
     var mAdapter = VehiculoAdapter(this)
@@ -27,7 +26,7 @@ class VehiculoFragment : Fragment(),OnVehiculoClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding= FragmentVehiculoBinding.inflate(inflater,container,false)
         val binding = _binding!!
@@ -95,6 +94,7 @@ class VehiculoFragment : Fragment(),OnVehiculoClickListener {
         intent.putExtra("Color", item.color)
         intent.putExtra("Neumaticos", item.neumaticos)
         intent.putExtra("Km", item.kilometros)
+        startActivity(intent)
     }
 
 

@@ -14,10 +14,6 @@
         <action
             android:id="@+id/action_loginFragment_to_singUpFragment"
             app:destination="@id/singUpFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_recoverPassFragment"
-            app:destination="@id/recoverPassFragment" />
-
 
 
     </fragment>
@@ -28,15 +24,6 @@
         tools:layout="@layout/fragment_sing_up">
         <action
             android:id="@+id/action_singUpFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/recoverPassFragment"
-        android:name="com.example.garage.ui.fragments.RecoveyPassFragment"
-        android:label="fragment_recover_pass"
-        tools:layout="@layout/fragment_recovery_pass" >
-        <action
-            android:id="@+id/action_recoverPassFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 
